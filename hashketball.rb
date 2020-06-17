@@ -208,8 +208,14 @@ end
 
 def big_shoe_rebounds()
  home_response = game_hash[:home][:players].max_by{ |player| player[:shoe]}
- home_response[:rebounds]
+home_response[:rebounds] 
    #binding.pry
   
 end
+
+
+
+
+
+
 
