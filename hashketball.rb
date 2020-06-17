@@ -1,3 +1,4 @@
+               require "pry"
 # Write your code below game_hash
 def game_hash
   {
@@ -127,3 +128,88 @@ def game_hash
 end
 
 # Write code here
+
+def num_points_scored(player)
+  home_response = game_hash[:home][:players].select { |player_hash| player_hash[:player_name] == player}
+  away_response = game_hash[:away][:players].select { |player_hash| player_hash[:player_name] == player}
+  if home_response.none?
+    away_response[0][:points]
+  else
+    home_response[0][:points]
+  end
+end
+
+
+
+def shoe_size(player)
+  
+  home_response = game_hash[:home][:players].select { |player_hash| player_hash[:player_name] == player}
+  away_response = game_hash[:away][:players].select { |player_hash| player_hash[:player_name] == player}
+  if home_response.none?
+    away_response[0][:shoe]
+    #binding.pry
+  else
+    home_response[0][:shoe]
+  end
+end
+
+ 
+def team_colors(name)
+  home_response = game_hash[:home][:colors]
+  away_response = game_hash[:away][:colors]
+  
+if name == "Brooklyn Nets" 
+  home_response
+elsif name == "Charlotte Hornets"
+away_response
+end
+end
+
+#binding.pry
+def team_names
+  home_response = game_hash[:home][:team_name]
+  away_response = game_hash[:away][:team_name]
+  names = [home_response,away_response]
+end
+
+#binding.pry 
+def player_numbers(name)
+  
+home_response = game_hash[:home][:players].map{ |player| player[:number] }
+
+away_response =game_hash[:away][:players].map{ |player| player[:number] }
+if name == "Brooklyn Nets"
+  home_response
+elsif
+  name = "Charlotte Hornets"
+  away_response 
+end
+end
+
+
+def player_stats(name)
+  
+  home_response = game_hash[:home][:players].select{ |player| player[:player_name] == name }
+ #binding.pry
+  away_response =game_hash[:away][:players].select{ |player| player[:player_name] == name }
+ #binding.pry 
+  #home_response.none? ? away_response[0] : home_response[0]
+  if home_response.none?
+    away_response[0]
+  else 
+    home_response[0]
+    
+  end
+  
+end
+
+ 
+
+
+def big_shoe_rebounds()
+ home_response = game_hash[:home][:players].max_by{ |player| player[:shoe]}
+ home_response[:rebounds]
+   #binding.pry
+  
+end
+
