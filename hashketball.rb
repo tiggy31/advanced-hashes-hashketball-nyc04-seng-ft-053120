@@ -170,6 +170,8 @@ def team_names
   home_response = game_hash[:home][:team_name]
   away_response = game_hash[:away][:team_name]
   names = [home_response,away_response]
+  #binding.pry
+  puts "hello"
 end
 
 #binding.pry 
@@ -190,7 +192,7 @@ end
 def player_stats(name)
   
   home_response = game_hash[:home][:players].select{ |player| player[:player_name] == name }
- #binding.pry
+
   away_response =game_hash[:away][:players].select{ |player| player[:player_name] == name }
  #binding.pry 
   #home_response.none? ? away_response[0] : home_response[0]
@@ -198,7 +200,8 @@ def player_stats(name)
     away_response[0]
   else 
     home_response[0]
-    
+   # binding.pry
+    #puts "hello"
   end
   
 end
@@ -208,8 +211,12 @@ end
 
 def big_shoe_rebounds()
  home_response = game_hash[:home][:players].max_by{ |player| player[:shoe]}
+away_response= game_hash[:away][:players].max_by{ |player| player[:shoe]}
 home_response[:rebounds] 
-   #binding.pry
+
+
+   binding.pry
+   puts "hello"
   
 end
 
